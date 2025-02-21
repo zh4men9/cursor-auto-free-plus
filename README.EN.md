@@ -2,6 +2,41 @@
 
 README also available in: [中文](./README.md)
 
+## Project Description
+This project is an enhanced version of [cursor-auto-free](https://github.com/chengazhen/cursor-auto-free), with new features for batch registration and quick account switching.
+
+## Main Features
+1. Machine Code Reset Only - Reset Cursor's machine code
+2. Complete Registration Process - Automatically register new account and configure
+3. Batch Account Registration - Automatically register multiple accounts and save
+4. Quick Account Selection - Randomly select and switch from saved accounts
+
+## New Features Description
+
+### Batch Account Registration
+- Support registering multiple accounts at once
+- Automatically save all successfully registered account information
+- Include complete account information (email, password, token, etc.)
+- Support breakpoint resume registration, no loss of registered accounts after interruption
+- Built-in random delays to avoid frequent registrations
+
+### Quick Account Selection
+- Randomly select accounts from saved account pool
+- Automatically update authentication information
+- Automatically reset machine code
+- One-click account switching
+
+## Development Plan (TODO)
+
+### Account Management Optimization
+- [ ] Support deleting used accounts
+- [ ] Account status marking (Available/Used)
+
+### User Interface Improvements
+- [ ] Add graphical configuration interface
+- [ ] .env visual configuration tool
+- [ ] Registered accounts viewer
+
 ## Online Documentation
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)
 
