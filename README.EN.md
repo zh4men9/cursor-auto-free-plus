@@ -21,16 +21,21 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 - Built-in random delays to avoid frequent registrations
 
 ### Quick Account Selection
-- Randomly select accounts from saved account pool
+- Randomly select accounts from saved account pool (accounts.json)
 - Automatically update authentication information
 - Automatically reset machine code
 - One-click account switching
+- Selected account is removed from accounts.json
+- Complete account information is saved to used_accounts.json
+- Support account reuse (clear used_accounts.json to reuse accounts when accounts.json is empty)
 
 ## Development Plan (TODO)
 
 ### Account Management Optimization
-- [ ] Support deleting used accounts
-- [ ] Account status marking (Available/Used)
+- [x] Support deleting used accounts
+- [x] Account status marking (Available/Used)
+- [ ] Account usage statistics
+- [ ] Account validity check
 
 ### User Interface Improvements
 - [ ] Add graphical configuration interface
@@ -38,11 +43,13 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 - [ ] Registered accounts viewer
 
 ### Stability Improvements
-- [ ] Optimize Turnstile verification process
-  - Add verification retry mechanism
-  - Improve timeout handling
-  - Enhance error recovery
-  - Fix verification stuck issues
+- [x] Optimize Turnstile verification process
+  - [x] Add verification retry mechanism
+  - [x] Improve timeout handling
+  - [x] Enhance error recovery
+  - [x] Fix verification stuck issues
+- [ ] Add network exception retry
+- [ ] Optimize browser resource management
 
 ## Online Documentation
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)

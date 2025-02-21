@@ -27,3 +27,7 @@ node_modules/
 .env
 
 screenshots/
+
+used_accounts.json
+
+accounts.json

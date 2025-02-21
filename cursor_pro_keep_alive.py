@@ -11,6 +11,7 @@ import go_cursor_help
 import patch_cursor_get_machine_id
 from reset_machine import MachineIDResetter
 from account_storage import AccountStorage
+from used_account_storage import UsedAccountStorage
 
 os.environ["PYTHONVERBOSE"] = "0"
 os.environ["PYINSTALLER_VERBOSE"] = "0"
@@ -514,11 +515,17 @@ def quick_select_account() -> None:
     logging.info("\n=== 快速选取账号 ===")
     
     account_storage = AccountStorage()
-    account = account_storage.get_random_account()
+    used_account_storage = UsedAccountStorage()
     
-    if not account:
+    # 获取所有可用账号
+    all_accounts = account_storage.get_all_accounts()
+    
+    if not all_accounts:
         logging.error(f"{EMOJI['ERROR']} 账号库为空，请先注册账号")
         return
+    
+    # 随机选择一个账号
+    account = random.choice(all_accounts)
     
     try:
         # 更新认证信息
@@ -529,6 +536,14 @@ def quick_select_account() -> None:
         ):
             logging.info(f"{EMOJI['SUCCESS']} 账号切换成功")
             logging.info(f"当前账号: {account['email']}")
+            
+            # 从 accounts.json 中删除该账号
+            account_storage.remove_account(account['email'])
+            logging.debug(f"账号 {account['email']} 已从可用账号库中移除")
+            
+            # 添加到已使用账号列表
+            used_account_storage.add_account(account)
+            logging.debug(f"账号 {account['email']} 已添加到已使用账号列表")
             
             # 重置机器码
             greater_than_0_45 = check_cursor_version()

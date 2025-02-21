@@ -92,4 +92,4 @@ class AccountStorage:
             logging.warning(f"账号 {email} 不存在")
             return False
         
-        return self._save_accounts(accounts) 
+        return self._save_accounts(accounts)
