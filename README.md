@@ -1,14 +1,33 @@
 # Cursor Pro 自动化工具使用说明
 
-
 [English doc](./README.EN.md)
 
-## 交流群 QQ 1034718338
+## 项目说明
+本项目是基于 [cursor-auto-free](https://github.com/chengazhen/cursor-auto-free) 的增强版本，新增了批量注册和快速切换账号功能。
 
+## 主要功能
+1. 仅重置机器码 - 重置 Cursor 的机器码
+2. 完整注册流程 - 自动注册新账号并配置
+3. 批量注册账号 - 自动批量注册多个账号并保存
+4. 快速选取账号 - 从已保存的账号中随机选择并切换
+
+## 新增功能说明
+
+### 批量注册账号
+- 支持一次性注册多个账号
+- 自动保存所有注册成功的账号信息
+- 包含完整的账号信息（邮箱、密码、Token等）
+- 支持断点续注册，中断后不会丢失已注册的账号
+- 内置随机延迟，避免频繁注册
+
+### 快速选取账号
+- 从已保存的账号库中随机选择账号
+- 自动更新认证信息
+- 自动重置机器码
+- 一键完成账号切换
 
 ## 在线文档
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)
-
 
 ## 许可证声明
 本项目采用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可证。
@@ -21,26 +40,12 @@
 - 本项目仅供学习交流使用，请勿用于商业用途。
 - 本项目不承担任何法律责任，使用本项目造成的任何后果，由使用者自行承担。
 
-
-
-## 骗子
-海豚
-
-
-## 感谢 linuxDo 这个开源社区(一个真正的技术社区)
-https://linux.do/
-
 ## 特别鸣谢
-本项目的开发过程中得到了众多开源项目和社区成员的支持与帮助，在此特别感谢：
+本项目基于以下开源项目开发：
 
-### 开源项目
-- [go-cursor-help](https://github.com/yuaotian/go-cursor-help) - 一个优秀的 Cursor 机器码重置工具，本项目的机器码重置功能使用该项目实现。该项目目前已获得 9.1k Stars，是最受欢迎的 Cursor 辅助工具之一。
+- [cursor-auto-free](https://github.com/chengazhen/cursor-auto-free) - 原版 Cursor 自动化工具，本项目的基础功能基于此项目实现
+- [go-cursor-help](https://github.com/yuaotian/go-cursor-help) - 一个优秀的 Cursor 机器码重置工具，本项目的机器码重置功能使用该项目实现
 
-## 请我喝杯茶
-<img src="./screen/28613e3f3f23a935b66a7ba31ff4e3f.jpg" width="300"/> <img src="./screen/mm_facetoface_collect_qrcode_1738583247120.png" width="300"/>
-
-## 关注公众号，随时获取仓库更新动态
-
-![image](./screen/qrcode_for_gh_c985615b5f2b_258.jpg)
-
-
+## 更新日志
+- 2024.02.21: 新增批量注册和快速选取账号功能
+- 继承原版所有功能和特性

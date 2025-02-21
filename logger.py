@@ -13,7 +13,7 @@ class PrefixFormatter(logging.Formatter):
 
     def format(self, record):
         if record.levelno == logging.DEBUG:  # 只给 DEBUG 级别添加前缀
-            record.msg = f"[开源项目：https://github.com/chengazhen/cursor-auto-free] {record.msg}"
+            record.msg = f"[开源项目：https://github.com/zh4men9/cursor-auto-free-plus] {record.msg}"
         return super().format(record)
 
 
