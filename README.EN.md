@@ -37,6 +37,13 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 - [ ] .env visual configuration tool
 - [ ] Registered accounts viewer
 
+### Stability Improvements
+- [ ] Optimize Turnstile verification process
+  - Add verification retry mechanism
+  - Improve timeout handling
+  - Enhance error recovery
+  - Fix verification stuck issues
+
 ## Online Documentation
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)
 

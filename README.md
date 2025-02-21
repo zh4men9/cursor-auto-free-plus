@@ -37,6 +37,13 @@
 - [ ] .env 可视化配置工具
 - [ ] 已注册账号列表查看器
 
+### 稳定性优化
+- [ ] 优化 Turnstile 验证流程
+  - 添加验证重试机制
+  - 完善超时处理
+  - 增加错误恢复功能
+  - 优化验证卡住问题
+
 ## 在线文档
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)
 
