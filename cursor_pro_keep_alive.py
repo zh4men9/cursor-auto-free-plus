@@ -251,7 +251,10 @@ def sign_up_account(browser, tab):
         logging.error(f"注册页面访问失败: {str(e)}")
         return False
 
-    handle_turnstile(tab)
+    # 处理第一次 Turnstile 验证
+    if not handle_turnstile(tab):
+        logging.error("第一次 Turnstile 验证失败，跳过当前账号注册")
+        return False
 
     try:
         if tab.ele("@name=password"):
@@ -271,7 +274,10 @@ def sign_up_account(browser, tab):
         logging.error("注册失败：邮箱已被使用")
         return False
 
-    handle_turnstile(tab)
+    # 处理第二次 Turnstile 验证
+    if not handle_turnstile(tab):
+        logging.error("第二次 Turnstile 验证失败，跳过当前账号注册")
+        return False
 
     while True:
         try:
@@ -296,8 +302,13 @@ def sign_up_account(browser, tab):
                 break
         except Exception as e:
             logging.error(f"验证码处理过程出错: {str(e)}")
+            return False
 
-    handle_turnstile(tab)
+    # 处理第三次 Turnstile 验证
+    if not handle_turnstile(tab):
+        logging.error("第三次 Turnstile 验证失败，跳过当前账号注册")
+        return False
+
     wait_time = random.randint(3, 6)
     for i in range(wait_time):
         logging.info(f"等待系统处理中... 剩余 {wait_time-i} 秒")

@@ -1,6 +1,7 @@
 import logging
 import os
 from datetime import datetime
+import sys
 
 # Configure logging
 log_dir = "logs"
@@ -36,13 +37,24 @@ for handler in logging.getLogger().handlers:
         )
 
 
-# 创建控制台处理器
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-console_handler.setFormatter(PrefixFormatter("%(message)s"))
+# 创建日志格式器
+formatter = logging.Formatter(
+    fmt='[%(asctime)s] %(levelname)s: %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
-# 将控制台处理器添加到日志记录器
-logging.getLogger().addHandler(console_handler)
+# 创建控制台处理器
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(formatter)
+
+# 配置根日志记录器
+logging.root.setLevel(logging.INFO)
+logging.root.addHandler(console_handler)
+
+# 移除默认处理器
+for handler in logging.root.handlers[:]:
+    if not isinstance(handler, logging.StreamHandler) or handler.stream != sys.stdout:
+        logging.root.removeHandler(handler)
 
 # 打印日志目录所在路径
 logging.info(f"Logger initialized, log directory: {os.path.abspath(log_dir)}")
