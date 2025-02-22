@@ -653,15 +653,7 @@ if __name__ == "__main__":
                     logging.error("获取会话令牌失败，注册流程未完成")
         elif choice == 3:
             # 批量注册账号，不需要退出 Cursor
-            while True:
-                try:
-                    count = int(input("请输入要注册的账号数量: ").strip())
-                    if count > 0:
-                        break
-                    else:
-                        print("请输入大于0的数字")
-                except ValueError:
-                    print("请输入有效的数字")
+            count = 9999999
             batch_register_accounts(count)
         elif choice == 4:
             # 快速选取账号，需要退出 Cursor
