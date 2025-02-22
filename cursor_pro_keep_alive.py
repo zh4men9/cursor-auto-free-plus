@@ -569,11 +569,13 @@ if __name__ == "__main__":
         print("2. 完整注册流程")
         print("3. 批量注册账号")
         print("4. 快速选取账号")
+        print("5. 多进程并发注册")
+        print("6. 合并历史账号")
 
         while True:
             try:
-                choice = int(input("请输入选项 (1-4): ").strip())
-                if choice in [1, 2, 3, 4]:
+                choice = int(input("请输入选项 (1-6): ").strip())
+                if choice in [1, 2, 3, 4, 5, 6]:
                     break
                 else:
                     print("无效的选项,请重新输入")
@@ -653,13 +655,21 @@ if __name__ == "__main__":
                     logging.error("获取会话令牌失败，注册流程未完成")
         elif choice == 3:
             # 批量注册账号，不需要退出 Cursor
-            count = 9999999
+            count = 99999  # 恢复原来的批量注册数量
             batch_register_accounts(count)
         elif choice == 4:
             # 快速选取账号，需要退出 Cursor
             logging.info("正在退出 Cursor...")
             ExitCursor()
             quick_select_account()
+        elif choice == 5:
+            # 多进程并发注册，不需要退出 Cursor
+            logging.info("启动多进程并发注册...")
+            os.system('python start_multi.py')
+        elif choice == 6:
+            # 合并历史账号
+            logging.info("开始合并历史账号...")
+            os.system('python merge_accounts.py')
         
         print_end_message()
         

@@ -10,6 +10,8 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 2. Complete Registration Process - Automatically register new account and configure
 3. Batch Account Registration - Automatically register multiple accounts and save
 4. Quick Account Selection - Randomly select and switch from saved accounts
+5. Multi-process Concurrent Registration - Support multiple processes registering simultaneously for higher efficiency
+6. Historical Account Merging - Merge account files from all registration batches
 
 ## New Features Description
 
@@ -19,6 +21,11 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 - Include complete account information (email, password, token, etc.)
 - Support breakpoint resume registration, no loss of registered accounts after interruption
 - Built-in random delays to avoid frequent registrations
+- Smart process management with automatic timeout cleanup
+- Browser instance auto-retry mechanism
+- Automatic resource recycling to prevent memory leaks
+- Dynamic concurrency control to avoid resource competition
+- Support auto-stop when reaching target registration count
 
 ### Quick Account Selection
 - Randomly select accounts from saved account pool (accounts.json)
@@ -34,6 +41,9 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
 ### Account Management Optimization
 - [x] Support deleting used accounts
 - [x] Account status marking (Available/Used)
+- [x] Process management optimization
+- [x] Automatic resource recycling
+- [x] Browser instance management
 - [ ] Account usage statistics
 - [ ] Account validity check
 
@@ -48,8 +58,14 @@ This project is an enhanced version of [cursor-auto-free](https://github.com/che
   - [x] Improve timeout handling
   - [x] Enhance error recovery
   - [x] Fix verification stuck issues
-- [ ] Add network exception retry
-- [ ] Optimize browser resource management
+- [x] Add network exception retry
+  - [x] Browser initialization retry
+  - [x] Cookie acquisition retry
+  - [x] Verification code retry
+- [x] Optimize browser resource management
+  - [x] Smart process cleanup
+  - [x] Memory leak protection
+  - [x] Dynamic concurrency control
 
 ## Online Documentation
 [cursor-auto-free-doc.vercel.app](https://cursor-auto-free-doc.vercel.app)

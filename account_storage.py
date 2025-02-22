@@ -6,14 +6,12 @@ from typing import Dict, List, Optional
 from logger import logging
 
 class AccountStorage:
-    def __init__(self, storage_file: str = "accounts.json"):
-        """
-        初始化账号存储
-        
-        Args:
-            storage_file: 存储文件路径
-        """
-        self.storage_file = storage_file
+    """账号存储管理类"""
+    
+    def __init__(self):
+        """初始化存储管理器"""
+        # 从环境变量获取存储文件路径，如果没有则使用默认值
+        self.storage_file = os.getenv('ACCOUNT_STORAGE_FILE', 'accounts.json')
         self._ensure_storage_file()
     
     def _ensure_storage_file(self) -> None:
