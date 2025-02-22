@@ -28,8 +28,8 @@ jobs:
     - name: Upload Windows artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-Windows
-        path: dist/CursorPro.exe
+        name: CursorProPlus-Windows
+        path: dist/CursorProPlus.exe
 
   build-macos-arm64:
     runs-on: macos-latest
@@ -55,8 +55,8 @@ jobs:
     - name: Upload MacOS ARM artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-MacOS-ARM64
-        path: dist/CursorPro
+        name: CursorProPlus-MacOS-ARM64
+        path: dist/CursorProPlus
 
   build-linux:
     runs-on: ubuntu-22.04
@@ -82,8 +82,8 @@ jobs:
     - name: Upload Linux artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-Linux
-        path: dist/CursorPro
+        name: CursorProPlus-Linux
+        path: dist/CursorProPlus
 
   build-macos-intel:
     runs-on: macos-latest
@@ -111,5 +111,5 @@ jobs:
     - name: Upload MacOS Intel artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-MacOS-Intel
-        path: dist/CursorPro
+        name: CursorProPlus-MacOS-Intel
+        path: dist/CursorProPlus

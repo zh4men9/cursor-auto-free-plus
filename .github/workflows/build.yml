@@ -30,8 +30,8 @@ jobs:
     - name: Upload Windows artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-Windows
-        path: dist/CursorPro.exe
+        name: CursorProPlus-Windows
+        path: dist/CursorProPlus.exe
 
   build-macos-arm64:
     runs-on: macos-latest
@@ -57,8 +57,8 @@ jobs:
     - name: Upload MacOS ARM artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-MacOS-ARM64
-        path: dist/CursorPro
+        name: CursorProPlus-MacOS-ARM64
+        path: dist/CursorProPlus
 
   build-linux:
     runs-on: ubuntu-22.04
@@ -84,8 +84,8 @@ jobs:
     - name: Upload Linux artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-Linux
-        path: dist/CursorPro
+        name: CursorProPlus-Linux
+        path: dist/CursorProPlus
 
   build-macos-intel:
     runs-on: macos-latest
@@ -113,8 +113,8 @@ jobs:
     - name: Upload MacOS Intel artifact
       uses: actions/upload-artifact@v4
       with:
-        name: CursorPro-MacOS-Intel
-        path: dist/CursorPro
+        name: CursorProPlus-MacOS-Intel
+        path: dist/CursorProPlus
 
   create-release:
     needs: [build-windows, build-macos-arm64, build-linux, build-macos-intel]
@@ -130,20 +130,20 @@ jobs:
       - name: Create release archives
         run: |
           cd artifacts
-          zip -r CursorPro-Windows.zip CursorPro-Windows/
-          zip -r CursorPro-MacOS-ARM64.zip CursorPro-MacOS-ARM64/
-          zip -r CursorPro-Linux.zip CursorPro-Linux/
-          zip -r CursorPro-MacOS-Intel.zip CursorPro-MacOS-Intel/
+          zip -r CursorProPlus-Windows.zip CursorProPlus-Windows/
+          zip -r CursorProPlus-MacOS-ARM64.zip CursorProPlus-MacOS-ARM64/
+          zip -r CursorProPlus-Linux.zip CursorProPlus-Linux/
+          zip -r CursorProPlus-MacOS-Intel.zip CursorProPlus-MacOS-Intel/
 
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            artifacts/CursorPro-Windows.zip
-            artifacts/CursorPro-MacOS-ARM64.zip
-            artifacts/CursorPro-Linux.zip
-            artifacts/CursorPro-MacOS-Intel.zip
+            artifacts/CursorProPlus-Windows.zip
+            artifacts/CursorProPlus-MacOS-ARM64.zip
+            artifacts/CursorProPlus-Linux.zip
+            artifacts/CursorProPlus-MacOS-Intel.zip
 
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
